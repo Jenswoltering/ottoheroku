@@ -6,9 +6,10 @@
   "scripts": {
     "setup": "npm install",
     "start": "cd build && node main",
-    "compile": "node build.js && backpack build",
+    "build": "node build.js && backpack build",
     "dev": "node build.js && backpack dev | pino -o 'short'",
-    "test": "node build.js && mocha test/**/*.ts --exit"
+    "test": "node build.js && mocha test/**/*.ts --exit",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",

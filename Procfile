@@ -1,1 +1,1 @@
-web: cd build && node main
+web: sh -c 'cd ./build/ && node main'
