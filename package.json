@@ -20,31 +20,31 @@
     "npm": "6.0.1"
   },
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
-    "dotenv": "^4.0.0",
-    "express": "^4.16.2",
-    "pino": "^4.7.3",
-    "source-map-support": "^0.4.15",
-    "swagger-express-middleware": "^1.0.0-alpha.12",
     "@types/bluebird": "^3.5.20",
     "@types/chai": "^4.1.2",
     "@types/express": "^4.0.35",
     "@types/mocha": "^2.2.48",
     "@types/pino": "^4.7.1",
+    "@types/socket.io": "^1.4.33",
     "awesome-typescript-loader": "^3.4.1",
     "backpack-core": "^0.4.3",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.18.2",
     "chai": "^4.1.2",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
     "mocha": "^4.0.1",
+    "pino": "^4.7.3",
     "shelljs": "^0.7.8",
+    "socket.io": "^2.1.1",
+    "source-map-support": "^0.4.15",
     "supertest": "^3.0.0",
+    "swagger-express-middleware": "^1.0.0-alpha.12",
     "ts-node": "^4.1.0",
     "tslint": "^5.3.2",
     "typescript": "^2.7.2"
   },
-  "devDependencies": {
-    
-  },
+  "devDependencies": {},
   "author": "Jens Woltering <info@je-wo.com> (https://github.com/Jenswoltering)"
 }

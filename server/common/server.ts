@@ -2,7 +2,7 @@ import * as express from 'express';
 import { Application } from 'express';
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
-import * as http from 'http';
+import { createServer, Server }from 'http';
 import * as os from 'os';
 import * as cookieParser from 'cookie-parser';
 import swaggerify from './swagger';
@@ -11,6 +11,7 @@ import l from './logger';
 const app = express();
 
 export default class ExpressServer {
+  private server: Server;
   constructor() {
     const root = path.normalize(__dirname + '/../..');
     app.set('appPath', root + 'client');
@@ -27,7 +28,11 @@ export default class ExpressServer {
 
   listen(port: number = parseInt(process.env.PORT)): Application {
     const welcome = port => () => l.info(`up and running in ${process.env.NODE_ENV || 'development'} @: ${os.hostname() } on port: ${port}}`);
-    http.createServer(app).listen(port, welcome(port));
+    this.server = createServer(app).listen(port, welcome(port));
     return app;
+  }
+
+  getServer(): Server{
+    return this.server;
   }
 }
