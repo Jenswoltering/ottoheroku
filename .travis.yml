@@ -1,8 +1,15 @@
 language: node_js
 node_js:
-  - "8.9.4"
-  - "10.1.0"
+- 8.9.4
+- 10.1.0
 before_script:
-  - npm run setup
-script: 
-  - npm test
+- npm run setup
+script:
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: XjxVLNJquvPN/qESLD3iEX3hyKFPTg/22PVUbjZkO7/V1UuCWfNRY4zQneVQtxaDrLTvI73oCLibQCUxsEf1eEqDhadFgP3P9I3lZJvJN4XgPduzYA/XNHTey1IJaT5WKIfYHwmPFGC5JtXiuQcwOQOUXQuN2DyAGmpy3KAspP7COycCFeZixV1YmigZ6W8jqOeVf+v8/k8NPpweb9fWtCg25v1jqKU39PqHD9znJgKeBUk12Wlo1Ju4X/R+2J0tWP7xMInmNQVs9HGMbxGOLXCQD05lKOb/8qO/441YbYvicDnadV8q/N0D10+oniswXTFeYpysoZoFn6Q1ZOnqLaamX6ePx13NnAn430ro+oZoFVu21QnzItdxh/ZJ16DJEzaDucFvnlRE0fn61VUY3sL4n0BIVaITb4YQsoB74WzlNPpYOqZ40QwQ54UUa1VFj2eZ2hbNU0dNxsyG8Ch93t6REpYj9bWkvU97PCPozGC+O9eRWtuICy6y0SAYr9mmVw3INlV95VkUscBFz4WbSdJTiJH0lRCWu5CxsOA1C1tNp+Bm8UKMnIkKs7oDxwLrlfWyUlnToIccs4HJmPdA11ZPUHlweJXKRp0Fwz0CfulfKRSES95z4D8o5VlTe88I6KhQHsuDLOlrmgQejg/k2v023ml+nz0RwBhLo42jzSE=
+  app: ottoheroku
+  on:
+    repo: Jenswoltering/ottoheroku
