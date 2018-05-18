@@ -2,7 +2,7 @@ import * as socketio from 'socket.io';
 import { Server } from 'http';
 import { Room, User, Host ,RoomManager } from './models';
 import {isRealString, isRealHost} from './utils/validation';
-
+import l from '../common/logger';
 export default class SocketServer {
     private io: SocketIO.Server;
     private roomManager: RoomManager
@@ -10,12 +10,14 @@ export default class SocketServer {
     constructor(server: Server){
         this.roomManager = new RoomManager
         this.io = socketio(server);
+        this.listen();
     }
 
     private listen():void {
         this.io.on('connect', (socket: SocketIO.Socket) => {
+            socket.emit("hallo");
             console.log('Connected client on port %s.');
-            
+            l.info(`socket connected`);
             socket.on('create', (roomID: string) => {
                 if( isRealHost(socket.id)){
                     let host = new Host( socket.id ,socket )
