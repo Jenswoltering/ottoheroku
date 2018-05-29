@@ -18,7 +18,7 @@ export default class SocketServer {
             l.info(`'Connection sucessfull ' + socket.id.toString()`);
             socket.on('create', (roomID: string) => {
                 if( isRealHost(socket.id)){
-                    l.info("host add request")
+                    l.info("host add request room: " + roomID)
                     const host = new Host(socket.id , socket);
                     this.roomManager.addRoom(roomID,host);
                 }
@@ -36,6 +36,7 @@ export default class SocketServer {
             });
 
             socket.on('jsm', (roomID: string, joystickData: any) => {
+                l.info("Got jsm for room: " +  roomID)
                 if (this.roomManager.isExisting(roomID)){
                     l.info("Got jsm")
                     // console.log(this.roomManager.getHostOfRoom(roomID).getID() + '' + JSON.stringify(joystickData))
