@@ -18,6 +18,7 @@ export default class SocketServer {
             l.info(`'Connection sucessfull ' + socket.id.toString()`);
             socket.on('create', (roomID: string) => {
                 if( isRealHost(socket.id)){
+                    l.info("host add request")
                     const host = new Host(socket.id , socket);
                     this.roomManager.addRoom(roomID,host);
                 }
