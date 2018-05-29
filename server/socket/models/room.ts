@@ -1,6 +1,6 @@
 import { isRealHost } from '../utils/validation'
-import { User } from './user'
 import { Host } from './host'
+import { User } from './user'
 
 export class Room {
     private host: Host
@@ -19,13 +19,13 @@ export class Room {
         this.users.push(user)
     }
     public deleteUser(user: User):void{
-        let index = this.users.indexOf(user, 0);
+        const index = this.users.indexOf(user, 0);
         if (index > -1) {
             this.users.splice(index, 1);
         }
     }
-    public hasUser(user:User):boolean {
-        return this.users.some(user => user == user)
+    public hasUser(pUser:User):boolean {
+        return this.users.some(user => user === pUser)
     }
     public hasHost():boolean{
         if  (this.host != null) {

@@ -1,6 +1,6 @@
 import ExpressServer from './common/server';
-import SocketServer from './socket/socketServer'
 import routes from './routes';
+import SocketServer from './socket/socketServer'
 
 export class OttoServer {
     private expressServer: ExpressServer;

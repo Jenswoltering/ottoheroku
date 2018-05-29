@@ -9,7 +9,10 @@
     "build": "node build.js && backpack build",
     "dev": "node build.js && backpack dev | pino -o 'short'",
     "test": "node build.js && mocha test/**/*.ts --exit",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "lint": "npx tslint  --fix --project '.'",
+    "prettier": "npx prettier --no-config",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "repository": {
     "type": "git",
@@ -42,9 +45,13 @@
     "supertest": "^3.0.0",
     "swagger-express-middleware": "^1.0.0-alpha.12",
     "ts-node": "^4.1.0",
-    "tslint": "^5.3.2",
     "typescript": "^2.7.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "1.12.1",
+    "prettier-tslint": "^0.4.0",
+    "tslint": "^5.10.0",
+    "tslint-config-prettier": "^1.12.0"
+  },
   "author": "Jens Woltering <info@je-wo.com> (https://github.com/Jenswoltering)"
 }

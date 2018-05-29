@@ -1,8 +1,9 @@
-import * as middleware from 'swagger-express-middleware';
 import { Application } from 'express';
 import * as path from 'path';
+import * as middleware from 'swagger-express-middleware';
 
 export default function (app: Application, routes: (app: Application) => void) {
+  // tslint:disable-next-line
   middleware(path.join(__dirname, 'Api.yaml'), app, function(err, middleware) {
 
     // Enable Express' case-sensitive and strict options
@@ -32,6 +33,7 @@ export default function (app: Application, routes: (app: Application) => void) {
       middleware.validateRequest());
 
     // Error handler to display the validation error as HTML
+    // tslint:disable-next-line
     app.use(function (err, req, res, next) {
       res.status(err.status);
       res.send(

@@ -2,30 +2,30 @@ import * as Promise from 'bluebird';
 import L from '../../common/logger'
 
 let id = 0;
-interface Example {
+interface IExample {
   id: number,
   name: string
 };
 
-const examples: Example[] = [
+const examples: IExample[] = [
     { id: id++, name: 'example 0' }, 
     { id: id++, name: 'example 1' }
 ];
 
 export class ExamplesService {
-  all(): Promise<Example[]> {
+  public all(): Promise<IExample[]> {
     L.info(examples, 'fetch all examples');
     return Promise.resolve(examples);
   }
 
-  byId(id: number): Promise<Example> {
-    L.info(`fetch example with id ${id}`);
-    return this.all().then(r => r[id])
+  public byId(pId: number): Promise<IExample> {
+    L.info(`fetch example with id ${pId}`);
+    return this.all().then(r => r[pId])
   }
 
-  create(name: string): Promise<Example> {
+  public create(name: string): Promise<IExample> {
     L.info(`create example with name ${name}`);
-    const example: Example = {
+    const example: IExample = {
       id: id++,
       name
     };

@@ -1,8 +1,8 @@
-import { isRealHost } from '../utils/validation'
 import { Socket } from 'socket.io';
+import { isRealHost } from '../utils/validation'
 export class User {
-    protected id:string
     public socket: Socket
+    protected id:string
     private isHost:boolean = false
     constructor(id: string, socket:Socket) {
         this.id = id
