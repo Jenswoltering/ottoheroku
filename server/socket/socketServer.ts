@@ -29,7 +29,7 @@ export default class SocketServer {
                 if (this.roomManager.isExisting(roomID)){
                     const user = new User( socket.id ,socket )
                     this.roomManager.joinUser(roomID, user)
-                    socket.to(this.roomManager.getHostOfRoom(roomID).getID()).emit('newUser', user.socket)
+                    socket.to(this.roomManager.getHostOfRoom(roomID).getID()).emit('newUser', user.getID)
                     // console.log(this.roomManager.getRoom(roomID).getHost().getID())
                 }
                 // console.log('[server](message): %s', JSON.stringify(roomID));
